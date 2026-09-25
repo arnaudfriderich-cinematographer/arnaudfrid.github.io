@@ -282,6 +282,24 @@ ul { list-style: none; }
 }
 .grid-all:hover { background: rgba(255, 255, 255, 0.18); }
 
+/* ==========================================================================
+   Réalisateurs, clients, contact
+   ========================================================================== */
+
+.info { padding: clamp(90px, 11vw, 160px) var(--gutter) clamp(80px, 9vw, 130px); }
+.info-cols {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.info-col h3 { font-size: 12px; font-weight: 400; color: var(--muted); margin-bottom: 14px; }
+.info-col li { font-size: 15px; line-height: 1.75; overflow-wrap: anywhere; }
+.info-col .contact-icons { gap: 18px; }
+
+.reveal { opacity: 0; transform: translateY(32px); }
+.reveal.is-in { opacity: 1; transform: none; transition: opacity 1s var(--ease-out), transform 1.2s var(--ease-out); }
+
 .foot {
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
   padding: 20px var(--gutter) calc(20px + env(safe-area-inset-bottom));
@@ -435,6 +453,8 @@ ul { list-style: none; }
   .flyout { height: 100svh; overflow-y: auto; overscroll-behavior: contain; }
   .flyout-inner { padding: calc(var(--nav-h) + 28px) 28px 56px; }
   .menu-link { font-size: 34px; }
+
+  .info-cols { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 734px) {
@@ -447,10 +467,11 @@ ul { list-style: none; }
   .player-info { padding: 18px 18px calc(22px + env(safe-area-inset-bottom)); }
   .player-controls { gap: 8px; padding: 30px 10px 8px; }
   .ctrl-time { min-width: 30px; font-size: 11px; }
+  .info-cols { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .tile { opacity: 1; transform: none; }
+  .tile, .reveal { opacity: 1; transform: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; transition-delay: 0s !important; }
 }

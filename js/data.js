@@ -21,6 +21,11 @@ window.PORTFOLIO = {
     agent: "",
   },
 
+  clients: [
+    "Jean Paul Gaultier", "Miu Miu", "Yves Saint Laurent", "Loewe", "Lancôme", "L’Oréal",
+    "Maison Francis Kurkdjian", "Veuve Clicquot", "Ormaie", "Kitesy",
+  ],
+
   // Ordre du menu
   categories: [
     { id: "commercial", label: "Commercial" },

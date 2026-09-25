@@ -46,7 +46,7 @@
   $$("[data-role]").forEach((n) => (n.textContent = D.role));
   $("#year").textContent = new Date().getFullYear();
 
-  // Instagram, e-mail… : des icônes cliquables dans le menu
+  // Instagram, e-mail… : des icônes cliquables, dans le menu et en bas de page
   const GLYPHS = {
     instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/>',
     email: '<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.8 7.2L12 13l8.2-5.8"/>',
@@ -470,6 +470,20 @@
     if (isNarrow() !== layoutNarrow) currentTiles = layout(currentTiles);
     if (!isMobileNav()) document.body.classList.toggle("is-locked", playerIsOpen);
   });
+
+  /* ---------- Réalisateurs, clients, contact ---------- */
+
+  const directors = [...new Set(D.projects.map((p) => p.director).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, "fr"));
+  $("#info-directors").append(...directors.map((d) => el("li", { text: d })));
+  $("#info-clients").append(...(D.clients || []).map((c) => el("li", { text: c })));
+
+  if (hasContact()) $("#info-contact").replaceWith(contactIcons());
+  else $("#contact").remove();
+
+  const infoCols = $(".info-cols");
+  infoCols.classList.add("reveal");
+  reveal([infoCols]);
 
   /* ---------- Lecteur ---------- */
 
