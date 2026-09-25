@@ -13,10 +13,6 @@ window.PORTFOLIO = {
   name: "Arnaud Friderich",
   role: "Directeur de la photographie",
 
-  bio: [
-    "Arnaud Friderich est directeur de la photographie. Il travaille entre commercial, fiction et film d’art, pour des maisons de mode, de beauté et de parfum comme pour des projets d’auteur.",
-  ],
-
   // Laisser vide ("") pour masquer une ligne.
   contact: {
     instagram: "arnaud_friderich",
@@ -24,11 +20,6 @@ window.PORTFOLIO = {
     phone: "",
     agent: "",
   },
-
-  clients: [
-    "Jean Paul Gaultier", "Miu Miu", "Yves Saint Laurent", "Loewe", "Lancôme", "L’Oréal",
-    "Maison Francis Kurkdjian", "Veuve Clicquot", "Ormaie", "Kitesy",
-  ],
 
   // Ordre du menu
   categories: [
